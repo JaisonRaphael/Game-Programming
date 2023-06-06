@@ -1,8 +1,7 @@
 # EXP 03 - THIRD PERSON CHARACTER MESH
 
-###### NAME: JAISON RAPHAEL.V
-###### REG NO: 212221230038
-
+###### NAME: JANANI.R
+###### REG NO: 212221230039
 ## AIM:
 
 1. Import the animation assets: Obtain the animation files for jump, walk, and idle in a compatible format such as FBX or BVH. To import the animations, go to the Content Browser panel in Unreal Engine, right-click in the desired folder, and select Import 
