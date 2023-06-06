@@ -1,119 +1,83 @@
-# EXP 03 - THIRD PERSON CHARACTER MESH
+# EXP 04 - RIFLE-BULLET SPAWN
 
-###### NAME: JANANI.R
-###### REG NO: 212221230039
+#### NAME : MONISHA T
+#### REGISTER NO : 212221240029
+
 ## AIM:
 
-1. Import the animation assets: Obtain the animation files for jump, walk, and idle in a compatible format such as FBX or BVH. To import the animations, go to the Content Browser panel in Unreal Engine, right-click in the desired folder, and select Import 
+To Attach Rifle with character mesh and implementation bullet spawn from Rifle.
 
-2. Create a Separate folder and Import the Animations to avoid any chaos 
+## PROCEDURE:
 
-3. Create an animation blueprint: In Unreal Engine, animation blueprints are used to control character animations. To create a new animation blueprint, follow these steps: 
-    a. Right-click in the folder where you imported the mesh and select Create > Animation > Animation Blueprint. 
-    
-    b. In the Animation Blueprint Editor, click on the Event Graph tab. 
-    
-    c. Drag the new character mesh from the Content Browser and drop it onto the graph. 
-    
-    d. Connect the Output Pose pin of the mesh node to the Final Animation Pose pin of the Final Animation Pose node. 
-    
-    e. Save the animation blueprint. 
-    
-4. Open the animation blueprint: Open the animation blueprint you created for your character in the Animation Blueprint Editor. 
+1. Import the character mesh and rifle model into your game engine or development environment. Ensure that both assets are properly rigged and prepared for animation.
 
-5. Create animation slots: Animation slots help organize different animations and control their blending. To create animation slots, follow these steps: 
-    a. In the AnimGraph tab of the Animation Blueprint Editor, right-click in the graph and select Add State Machine > Animation Layer. 
-    
-    b. Double-click the newly created animation layer to open it. 
-    
-    c. Right-click in the graph of the animation layer and select Add State Machine. d. Double-click the newly created state machine to open it. 
-    
-    e. Right-click in the graph of the state machine and select Add State. 
-    
-    f. Rename the state to "Jump" and repeat steps e and f to create states for "Walk" and "Idle".
-    
-6. Add animation assets to states: In each state, you will assign the corresponding animation assets. To add animation assets to the states, follow these steps: 
-    a. Double-click the "Jump" state to open it. 
+2. Create an attachment point on the character's hand or shoulder where the rifle will be attached. This can be achieved by adding a socket or bone to the character's skeleton.
 
-    b. Right-click in the graph and select Add State Result. 
+3. Attach the rifle model to the character's attachment point using the appropriate parenting or socketing mechanism provided by your game engine. This will ensure that the rifle follows the character's movements and animations correctly.
 
-    c. Drag and drop the jump animation asset onto the graph. 
+4. Implement the logic for bullet spawning. You'll need to determine the position and direction from which the bullets should be spawned based on the rifle's barrel. Usually, this involves creating a spawn point on the rifle model, such as the barrel tip.
 
-    d. Connect the Result node to the jump animation asset.
+5. When the player triggers the shooting action (e.g., pressing a button or clicking the mouse), instantiate a bullet object at the spawn point you determined in the previous step. The bullet object should have its own movement and collision logic.
 
-    e. Repeat steps a to d for the "Walk" and "Idle" states, assigning the appropriate animation assets. 
+6. Set the initial velocity and direction of the bullet based on the rifle's orientation and any additional factors you want to consider, such as recoil or spread.
 
-7. Create required Variables for the state’s like “ISJUMP”, “SPEED”. 
+7. Continue updating the bullet's position and check for collisions or other interactions until
+it reaches its target or goes out of bounds. Handle any necessary effects or damage calculations upon collision.
 
-8. Set up transition rules: Transition rules determine when the character transitions between different animations. To set up transition rules, follow these steps: 
-    a. Double-click the "Jump" state to open it. 
-    
-    b. Right-click in the graph and select Add Transition Rule. 
-    
-    c. Drag the transition rule from the "Jump" state to the "Idle" state. 
-    
-    d. Repeat steps a to c for the "Walk" state, creating transitions from "Idle" to "Walk" and from "Walk" to "Idle". 
-    
-    e. Configure the transition rules based on your desired conditions. For example, you might want to trigger the transition from "Idle" to "Jump" when the character jumps, and from "Jump" to "Idle" when the jump animation is finished. 
+8. Repeat the bullet spawning process as needed whenever the player triggers the shooting action.
 
-9. Create a Anim Montage in Animation Folder To Manage the montages of the animations.
+### TO IMPLEMENT SCORE WEIGHT:
 
-10. Connect the animation blueprint to the character blueprint: To connect the animation blueprint to the character blueprint and enable the animations in the game, follow these steps:
-    a. Open the character blueprint associated with the third person character. 
-    
-    b. In the Viewport tab of the Blueprint Editor, select the mesh component of the character.
-    
-    c. In the Details panel, under the Animation category, find the Animation Blueprint property. 
-    
-    d. Click on the dropdown menu and select the animation blueprint you created. 
+1. Create a score variable: Declare a variable to keep track of the player's score. For example, you can initialize it to zero at the beginning of the game.
 
-11. Test the character: Compile and save all the changes in the blueprints and animations. Now, you can test the character's jump, walk, and idle animations by clicking the Play button in the Unreal Editor.
+2. Detect bullet-object collision: Implement a collision detection system to detect when a bullet collides with an object. This can vary depending on the game engine or framework you are using. Typically, you would check for collisions between the bullet and the object using their respective collision shapes or bounding boxes.
+
+3. Handle collision events: When a collision between a bullet and an object is detected, trigger a collision event or callback function. This function will be responsible for handling the specific actions associated with the collision.
+
+4. Increase the score: Inside the collision event function, increment the score variable by a
+certain amount. For example, you can add one point to the score every time a bullet hits an object.
+
+5. Update the score widget: After increasing the score, update the score widget to display
+the updated score value. This can be done by accessing the score widget element or object and setting its text or value to the updated score variable.
+
+6. Display the score widget: Ensure that the score widget is visible to the player during gameplay. This might involve placing it in a prominent position on the screen or integrating it into the game's user interface (UI) system.
+
+7. Repeat the process: Repeat steps 2 to 6 for each object that the player can interact with
+or shoot at. Whenever a bullet collides with an object, increase the score and update the score widget accordingly.
+
+8.  Optional: Add visual and audio feedback: To enhance the player's experience, you can consider adding visual and audio feedback when a bullet hits an object. For example, you might display a particle effect or play a sound effect to signify a successful hit
+
 
 ## OUTPUT:
 
-### ANIMATIONS:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/b158a3fe-3240-4924-b60d-dad143bcba8e)
+### GUN:
+![image](https://github.com/Aashima02/Rifle-Bullet-Spawn/assets/93427086/0fcba2f8-52e4-4374-b59f-2165846c6858)/
 
-### STATE MACHINES:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/c0aef584-f0d0-412e-8146-39f81157601d)
-
-
-### STATE DIAGRAM:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/64df2671-740a-4ef5-b402-3b827876310b)
+### GUNACTOR:
+![image](https://github.com/Aashima02/Rifle-Bullet-Spawn/assets/93427086/2bd0f7c5-b0cc-46e6-9cd4-96dffc0b4045)
 
 
-### VARIABLES:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/46ce9822-7e6f-40b4-921d-3fb2707f703f)
+### BULLETACTOR:
+![image](https://github.com/Aashima02/Rifle-Bullet-Spawn/assets/93427086/2c8fa646-257d-4acc-bb12-5fdb8bc2e590)
 
 
-### IDLE TO WALK:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/7a8bbd64-ab15-445f-9280-e6155633f830)
+### BLUEPRINTS FOR GUN SPAWN AND BULLET SPAWN:
 
-### WALK TO IDLE:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/a46cbe0c-6ff6-4180-a4fe-b6f7387fc4c6)
+![image](https://github.com/Aashima02/Rifle-Bullet-Spawn/assets/93427086/8ac82ecb-bb16-4e9f-b647-699af419325c)
+
+![image](https://github.com/Aashima02/Rifle-Bullet-Spawn/assets/93427086/7a70f0e3-b7d1-4d02-b9ec-830d515f822f)
+
+![image](https://github.com/Aashima02/Rifle-Bullet-Spawn/assets/93427086/47c681db-cf9b-46da-ac01-113aae3ca8c7)
+
+![image](https://github.com/Aashima02/Rifle-Bullet-Spawn/assets/93427086/4ac62e9c-cc77-468c-a363-2d32422ec77c)
 
 
-### WALK TO JUMP:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/7096c02a-a7ed-4953-b2ba-2bfe2247cc9d)
+### GUN IN HAND:
 
-### JUMP TO WALK:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/e27b4477-8010-40ce-8dac-764bc8663fa5)
+<img width="182" alt="image" src="https://github.com/Monisha-11/EXP---04---RIFLE-BULLET-SPAWN/assets/93427240/b7fc0323-e7c9-4a49-adc8-e3ded2621941">
 
-### JUMP TO IDLE:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/ea71effd-b0f8-4106-8aab-8e294733e869)
 
-### IDLE TO JUMP:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/47c81fbe-4bbd-45dd-88eb-7f7f07cda437)
-
-### ANIMATION BLUEPRINT:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/743d99c0-7034-450b-bced-75fc9bc60211)
-
-### ANIM MONTAGE:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/a6f7ef63-ec7c-4204-8ab6-ba9d33d9e705)
-
-### THIRD PERSON BLUEPRINT:
-![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/3c670727-d315-422f-82db-0158cbc04960)
 
 ## RESULT:
 
-The third person character mesh has been successfully changed using animations.
+To Attach Rifle with character mesh and implementation bullet spawn from Rifle is implemented successfully
