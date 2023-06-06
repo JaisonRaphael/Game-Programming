@@ -1,7 +1,7 @@
 # EXP 04 - RIFLE-BULLET SPAWN
 
-###### NAME: JANANI.R
-###### REG NO: 212221230039
+###### NAME: JAISON RAPHAEL.V
+###### REG NO: 212221230038
 ## AIM:
 
 To Attach Rifle with character mesh and implementation bullet spawn from Rifle.
