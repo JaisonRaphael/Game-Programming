@@ -1,7 +1,7 @@
 # EXP 02 - PAWN MOVEMENT
 
-###### NAME: MONISHA T
-###### REG NO: 212221240029
+###### NAME: JAISON RAPHAEL.V
+###### REG NO: 212221230038
 
 ## AIM:
 To Create a player movement using pawn, collectible, player health, and score.
