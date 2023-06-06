@@ -1,8 +1,7 @@
 # EXP 04 - RIFLE-BULLET SPAWN
 
-#### NAME : MONISHA T
-#### REGISTER NO : 212221240029
-
+###### NAME: JANANI.R
+###### REG NO: 212221230039
 ## AIM:
 
 To Attach Rifle with character mesh and implementation bullet spawn from Rifle.
