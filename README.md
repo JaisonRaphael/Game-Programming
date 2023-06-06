@@ -1,103 +1,120 @@
-# EXP 02 - PAWN MOVEMENT
+# EXP 03 - THIRD PERSON CHARACTER MESH
 
-###### NAME: JANANI.R
-###### REG NO: 212221230039
+###### NAME: MONISHA T
+###### REG NO: 212221240029
 
 ## AIM:
-To Create a player movement using pawn, collectible, player health, and score.
 
-## PROCEDURE:
+1. Import the animation assets: Obtain the animation files for jump, walk, and idle in a compatible format such as FBX or BVH. To import the animations, go to the Content Browser panel in Unreal Engine, right-click in the desired folder, and select Import 
 
-### To create and destroy the coin:
+2. Create a Separate folder and Import the Animations to avoid any chaos 
 
-1. Create a new project in Unreal Engine and choose a template that suits your needs.
+3. Create an animation blueprint: In Unreal Engine, animation blueprints are used to control character animations. To create a new animation blueprint, follow these steps: 
+    a. Right-click in the folder where you imported the mesh and select Create > Animation > Animation Blueprint. 
+    
+    b. In the Animation Blueprint Editor, click on the Event Graph tab. 
+    
+    c. Drag the new character mesh from the Content Browser and drop it onto the graph. 
+    
+    d. Connect the Output Pose pin of the mesh node to the Final Animation Pose pin of the Final Animation Pose node. 
+    
+    e. Save the animation blueprint. 
+    
+4. Open the animation blueprint: Open the animation blueprint you created for your character in the Animation Blueprint Editor. 
 
-2. Add a new actor to the level and call it "Coin".
+5. Create animation slots: Animation slots help organize different animations and control their blending. To create animation slots, follow these steps: 
+    a. In the AnimGraph tab of the Animation Blueprint Editor, right-click in the graph and select Add State Machine > Animation Layer. 
+    
+    b. Double-click the newly created animation layer to open it. 
+    
+    c. Right-click in the graph of the animation layer and select Add State Machine. d. Double-click the newly created state machine to open it. 
+    
+    e. Right-click in the graph of the state machine and select Add State. 
+    
+    f. Rename the state to "Jump" and repeat steps e and f to create states for "Walk" and "Idle".
+    
+6. Add animation assets to states: In each state, you will assign the corresponding animation assets. To add animation assets to the states, follow these steps: 
+    a. Double-click the "Jump" state to open it. 
 
-3. Create a new blueprint based on the Coin actor by selecting it in the Content Browser and choosing "Create Blueprint".
+    b. Right-click in the graph and select Add State Result. 
 
-4. Open the Coin blueprint and add a static mesh component to represent the coin. You can import a 3D model or use one of the default shapes provided by Unreal Engine.
+    c. Drag and drop the jump animation asset onto the graph. 
 
-5. Add a collision component to the Coin blueprint so that the player can interact with it. Choose a simple collision shape like a sphere or a box.
+    d. Connect the Result node to the jump animation asset.
 
-6.  Add a variable to the Coin blueprint to keep track of whether the coin has been collected or not. Call it "IsCollected" and set its default value to false.
+    e. Repeat steps a to d for the "Walk" and "Idle" states, assigning the appropriate animation assets. 
 
-7.  Create a new blueprint based on the player character by selecting it in the Content Browser and choosing "Create Blueprint".
+7. Create required Variables for the state’s like “ISJUMP”, “SPEED”. 
 
-8. Open the player blueprint and add a collision component to represent the player's interaction with the coins.
+8. Set up transition rules: Transition rules determine when the character transitions between different animations. To set up transition rules, follow these steps: 
+    a. Double-click the "Jump" state to open it. 
+    
+    b. Right-click in the graph and select Add Transition Rule. 
+    
+    c. Drag the transition rule from the "Jump" state to the "Idle" state. 
+    
+    d. Repeat steps a to c for the "Walk" state, creating transitions from "Idle" to "Walk" and from "Walk" to "Idle". 
+    
+    e. Configure the transition rules based on your desired conditions. For example, you might want to trigger the transition from "Idle" to "Jump" when the character jumps, and from "Jump" to "Idle" when the jump animation is finished. 
 
-9. Add an event to the player blueprint that gets triggered when the player collides with a coin. Use a collision event and check if the collided actor is a coin.
+9. Create a Anim Montage in Animation Folder To Manage the montages of the animations.
 
-10. If the collided actor is a coin, check if it has already been collected. If not, set its IsCollected variable to true and add its value to a score variable in the player blueprint.
+10. Connect the animation blueprint to the character blueprint: To connect the animation blueprint to the character blueprint and enable the animations in the game, follow these steps:
+    a. Open the character blueprint associated with the third person character. 
+    
+    b. In the Viewport tab of the Blueprint Editor, select the mesh component of the character.
+    
+    c. In the Details panel, under the Animation category, find the Animation Blueprint property. 
+    
+    d. Click on the dropdown menu and select the animation blueprint you created. 
 
-11. Remove the coin from the level by calling its Destroy function.
-
-12. Add several instances of the Coin actor to the level and adjusttheir positions so that they are spread out and not too close to each other.
+11. Test the character: Compile and save all the changes in the blueprints and animations. Now, you can test the character's jump, walk, and idle animations by clicking the Play button in the Unreal Editor.
 
 ## OUTPUT:
 
-### Starting position of the player:
-![image](https://github.com/Aashima02/Pawn-Movement/assets/93427086/a07560f0-ad0e-4812-a6e8-80049c24d89f)
+### ANIMATIONS:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/b158a3fe-3240-4924-b60d-dad143bcba8e)
 
-### Destroying the coins:
-![image](https://github.com/Aashima02/Pawn-Movement/assets/93427086/a3dc2dc5-4aa5-4499-84d7-35246add6266)
+### STATE MACHINES:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/c0aef584-f0d0-412e-8146-39f81157601d)
 
-### After destroying all the coins, the score and health bars get updated:
-![image](https://github.com/Aashima02/Pawn-Movement/assets/93427086/e7b6f849-a07b-46f2-bec6-bee5b0cefc64)
 
-## PROCEDURE:
+### STATE DIAGRAM:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/64df2671-740a-4ef5-b402-3b827876310b)
 
-### To redirect to levels:
 
-1. Create a new level or open an existing one.
+### VARIABLES:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/46ce9822-7e6f-40b4-921d-3fb2707f703f)
 
-2.  Add a new widget blueprint by going to the Content Browser and right-clicking in the desired folder. Select User Interface and then Widget Blueprint.
 
-3. Design your menu by adding buttons and other UI elements to the widget. You can use images, text, and other widgets to create a visually appealing menu.
+### IDLE TO WALK:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/7a8bbd64-ab15-445f-9280-e6155633f830)
 
-4. Add a button to your menu by dragging and dropping a Button widget from the Palette onto your canvas.
+### WALK TO IDLE:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/a46cbe0c-6ff6-4180-a4fe-b6f7387fc4c6)
 
-5. In the Button's properties, scroll down to the On Click section and click the + button next to the On Click event.
 
-6. Create a new custom event by clicking the New Binding button and selecting Custom Event.
+### WALK TO JUMP:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/7096c02a-a7ed-4953-b2ba-2bfe2247cc9d)
 
-7. Name the custom event "LoadScene" or something similar.
+### JUMP TO WALK:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/e27b4477-8010-40ce-8dac-764bc8663fa5)
 
-8.  Open the Level Blueprint by going to the Blueprint menu and selecting Open Level Blueprint.
+### JUMP TO IDLE:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/ea71effd-b0f8-4106-8aab-8e294733e869)
 
-9. Drag and drop your menu widget from the Content Browser into the Level Blueprint.
+### IDLE TO JUMP:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/47c81fbe-4bbd-45dd-88eb-7f7f07cda437)
 
-10. Create a new variable in the Level Blueprint by clicking the Add Variable button in the My Blueprint panel. Name the variable "MenuWidget" or something similar and set its type to the widget blueprint you created earlier.
+### ANIMATION BLUEPRINT:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/743d99c0-7034-450b-bced-75fc9bc60211)
 
-11. In the Level Blueprint, drag from the MenuWidget variable and select Set to set the variable's value to the instance of the menu widget you added to the level.
+### ANIM MONTAGE:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/a6f7ef63-ec7c-4204-8ab6-ba9d33d9e705)
 
-12. Create a new function in the Level Blueprint by clicking the Add Function button in the My Blueprint panel. Name the function "LoadScene" or something similar.
-
-13. Drag from the MenuWidget variable and select Get to get the instance of the menu widget.
-
-14. Drag from the Get node and select Remove From Parent to remove the menu widget from the screen.
-
-15. Drag from the LoadScene custom event and select Open Level to open the desired level or scene.
-
-16. Connect the nodes in the LoadScene function as follows: LoadScene -> Remove From Parent -> Open Level.
-
-17. Go back to your menu widget and select the button you added Earlier.
-
-18. In the Button's properties, scroll down to the On Click section and select the LoadScene custom event you created earlier.
-
-19. Save your changes and playtest your game. When the player clicks on the button in the menu, the menu widget will be removed and the desired level or scene will be loaded.
-
-## CONNECTIONS:
-
-### Play Button:
-![image](https://github.com/Aashima02/Pawn-Movement/assets/93427086/f9abbce1-d07f-4486-a7f4-7b174e5fe11c)
-
-### Quit Button:
-![image](https://github.com/Aashima02/Pawn-Movement/assets/93427086/d1572e81-d8ba-4e29-8927-517e30dcd69f)
-
-### Back Button:
-![image](https://github.com/Aashima02/Pawn-Movement/assets/93427086/1fe733d1-d506-4d1d-a338-87dcea1f6193)
+### THIRD PERSON BLUEPRINT:
+![image](https://github.com/Aashima02/Third-Person-Character-Mesh-/assets/93427086/3c670727-d315-422f-82db-0158cbc04960)
 
 ## RESULT:
 
-Thus, To Create a player movement using pawn, collectible, player health, and score created and developed by unreal Engine.
+The third person character mesh has been successfully changed using animations.
