@@ -1,7 +1,7 @@
 # EXP 02 - PAWN MOVEMENT
 
-###### NAME: JAISON RAPHAEL.V
-###### REG NO: 212221230038
+###### NAME: JANANI.R
+###### REG NO: 212221230039
 
 ## AIM:
 To Create a player movement using pawn, collectible, player health, and score.
